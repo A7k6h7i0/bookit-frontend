@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import SlotSelector from '../components/SlotSelector';
-import BookingSummary from '../components/BookingSummary';
 import Footer from '../components/Footer';
 import { getExperienceById } from '../services/api';
 import { Experience } from '../types';
