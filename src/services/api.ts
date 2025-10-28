@@ -1,17 +1,16 @@
 import axios from 'axios';
 import { Experience, Booking } from '../types';
 
-const API_URL =
+// Ensure vite client types exist (add src/vite-env.d.ts with: /// <reference types="vite/client" />)
+// Then this typed accessor works in both dev and build.
+const API_URL: string =
   (typeof import.meta !== 'undefined' &&
-    // @ts-expect-error - vite client types provide env
-    import.meta.env?.VITE_API_URL) ||
+    (import.meta as unknown as { env?: { VITE_API_URL?: string } }).env?.VITE_API_URL) ||
   'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
 });
 
 // Experience APIs
